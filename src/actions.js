@@ -1,14 +1,14 @@
 export const actionNames = {
-    APPLY_SERVER_SIDE_TIME: 'APPLY_SERVER_SIDE_TIME',
-    FETCH_SERVER_SIDE_TIME: 'FETCH_SERVER_SIDE_TIME',
+    TOGGLE_SHOW_SETTING: "TOGGLE_SHOW_SETTING",
+    TOGGLE_OPEN_MENU_POINT: "TOGGLE_OPEN_MENU_POINT"
 }
 
 export const actions = {
-    applyServerSideTime: time => ({
-        type: actionNames.APPLY_SERVER_SIDE_TIME,
-        payload: time
+    toggleShowSettings: () => ({
+        type: actionNames.TOGGLE_SHOW_SETTING
     }),
-    fetchServerSideTime: () => ({
-        type: actionNames.FETCH_SERVER_SIDE_TIME
+    toggleOpenMenuPoint: path => ({
+        type: actionNames.TOGGLE_OPEN_MENU_POINT,
+        payload: path
     })
 }

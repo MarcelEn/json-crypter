@@ -1,29 +1,41 @@
 import React, { Component } from 'react';
-import {connect} from 'react-redux';
-
-import WelcomeToReact from '../../components/welcometoreact/WelcomeToReact.jsx';
-
-import {actions} from '../../actions';
+import { connect } from 'react-redux';
+import { } from 'react-bootstrap';
+import DataConnector from '../../components/DataConnector/DataConnector.jsx';
+import JsonView from '../../components/JsonView/JsonView.jsx';
+import { Grid } from 'react-bootstrap';
+import { actions } from '../../actions';
 
 class App extends Component {
-  render() {
-    return (
-        <WelcomeToReact 
-            message={this.props.ui.message}
-            fetchServerSideTime={this.props.fetchServerSideTime}
-            serverSideTime={this.props.data.serverSideTime}
-        />
-    );
-  }
+    render() {
+        return (
+            <div>
+                <DataConnector
+                    toggleShowSettings={this.props.toggleShowSettings}
+                    showSettings={this.props.ui.showSettings}
+                />
+
+                <JsonView
+                    JsonData={this.props.data.JsonData}
+                    toggleOpenMenuPoint={this.props.toggleOpenMenuPoint}
+                    openPaths={this.props.ui.openPaths}
+                />
+
+            </div>
+        );
+    }
 }
 
 function mapStateToProps(state) {
-    return state;
+    return {
+        ...state
+    };
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        fetchServerSideTime: () => {dispatch(actions.fetchServerSideTime())}
+        toggleShowSettings: () => { dispatch(actions.toggleShowSettings()) },
+        toggleOpenMenuPoint: path => {dispatch(actions.toggleOpenMenuPoint(path))}
     }
 }
 

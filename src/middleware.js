@@ -24,7 +24,7 @@ function* fetchUser(action) {
 }
 
 function* mySaga() {
-  yield takeLatest(actionNames.FETCH_SERVER_SIDE_TIME, fetchUser);
+  //yield takeLatest(actionNames.FETCH_SERVER_SIDE_TIME, fetchUser);
 }
 
 export default mySaga;

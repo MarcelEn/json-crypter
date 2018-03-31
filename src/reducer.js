@@ -2,18 +2,33 @@ import {
     combineReducers
 } from 'redux';
 import app from './container/App/reducer';
-import {actionNames} from './actions';
+import { actionNames } from './actions';
 
 
 const data = (state = {
-    serverSideTime: null
+    JsonData: {
+        test: [
+            {
+                type: 'list',
+                heading: 'test',
+                data: [
+                    'hallo',
+                    'bb'
+                ]
+            },
+            {
+                type: 'list',
+                heading: 'test2',
+                data: [
+                    'hallo',
+                    'bb'
+                ]
+            }
+        ]
+    }
 }, action) => {
     switch (action.type) {
-        case actionNames.APPLY_SERVER_SIDE_TIME:
-        return {
-            ...state,
-            serverSideTime: action.payload
-        }
+
         default: return state;
     }
 }
